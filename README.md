@@ -6,8 +6,9 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.12-blue?logo=python" />
   <img src="https://img.shields.io/badge/Machine%20Learning-Scikit--Learn-orange" />
-  <img src="https://img.shields.io/badge/Framework-Streamlit-red?logo=streamlit" />
-  <img src="https://img.shields.io/badge/Status-Deployed-success" />
+  <img src="https://img.shields.io/badge/Streamlit-Web%20App-red?logo=streamlit" />
+  <img src="https://img.shields.io/badge/Docker-Containerized-blue?logo=docker" />
+  <img src="https://img.shields.io/badge/Deployment-Success-brightgreen" />
 </p>
 
 <p align="center">
@@ -16,15 +17,19 @@
 
 ---
 
-## 🌐 Live Application
+## 🌐 Live Application & Project Links
 
-🚀 **Try the application here:**
+🚀 **Streamlit Application:**
 
-[Mental Tiredness Prediction – Streamlit App](https://mental-tiredness-prediction-kbzdnfgvhheznilqyzdsbf.streamlit.app/)
+https://mental-tiredness-prediction-kbzdnfgvhheznilqyzdsbf.streamlit.app/
 
 📂 **GitHub Repository:**
 
-[View Project on GitHub](https://github.com/Bidyashreepanda/Mental-Tiredness-Prediction)
+https://github.com/Bidyashreepanda/Mental-Tiredness-Prediction
+
+🐳 **Docker Hub Repository:**
+
+https://hub.docker.com/r/bidyashree25/mental-tiredness-prediction
 
 ---
 
@@ -32,9 +37,9 @@
 
 Mental Tiredness Prediction is a Machine Learning regression project that predicts an individual's mental tiredness score based on lifestyle, sleep patterns, screen time, hydration, caffeine intake, mood, and work-related factors.
 
-The project follows a structured **4-Sprint Machine Learning Development Methodology**, covering the complete ML lifecycle from data understanding to deployment and basic MLOps implementation.
+The project follows a structured **4-Sprint Machine Learning Development Methodology**, covering the complete ML lifecycle from data understanding and preprocessing to model development, optimization, deployment, and basic MLOps implementation.
 
-The final trained model is integrated into an interactive Streamlit web application where users can enter their details and receive a predicted mental tiredness score.
+The final trained Random Forest Regression pipeline is integrated into an interactive Streamlit web application and containerized using Docker.
 
 ---
 
@@ -44,15 +49,15 @@ Mental tiredness can affect an individual's concentration, productivity, decisio
 
 Factors such as insufficient sleep, excessive screen time, inadequate hydration, caffeine consumption, mood, and work environment may contribute to mental fatigue.
 
-Identifying potential patterns associated with mental tiredness using lifestyle and work-related information can help individuals become more aware of their daily habits.
+Identifying patterns associated with mental tiredness using lifestyle and work-related information can help individuals become more aware of their daily habits.
 
 The objective of this project is to develop a **Machine Learning-Based Mental Tiredness Prediction System** that analyzes relevant lifestyle and work-related inputs to predict a mental tiredness score.
 
 The system uses a trained Random Forest Regression model and provides predictions through an interactive Streamlit web application.
 
-**Expected Outcome:** A user-friendly application that predicts a mental tiredness score based on user inputs and demonstrates an end-to-end Machine Learning workflow.
+**Expected Outcome:** A user-friendly application that predicts a mental tiredness score based on user inputs.
 
-*Note: This project is for educational and awareness purposes only. Predictions are estimates and are not a medical diagnosis.*
+*Note: This project is intended for educational and awareness purposes. Predictions are estimates and are not a medical diagnosis.*
 
 ---
 
@@ -68,6 +73,8 @@ The system uses a trained Random Forest Regression model and provides prediction
 - Save and reuse the trained ML pipeline.
 - Develop an interactive Streamlit application.
 - Deploy the application online.
+- Containerize the application using Docker.
+- Publish the Docker image on Docker Hub.
 - Implement basic experiment tracking and prediction monitoring.
 
 ---
@@ -84,16 +91,16 @@ The system uses a trained Random Forest Regression model and provides prediction
 | Web Application | Streamlit |
 | Development Environment | Jupyter Notebook, VS Code |
 | Version Control | Git, GitHub |
+| Containerization | Docker |
+| Container Registry | Docker Hub |
 | Deployment | Streamlit Community Cloud |
-| MLOps | Experiment Tracking, Logging, Prediction Monitoring |
+| MLOps | Logging, Experiment Tracking, Prediction Monitoring |
 
 ---
 
 ## 📊 Dataset Description
 
 **Dataset:** `mental_tiredness_score_prediction_dataset.csv.csv`
-
-The dataset contains lifestyle and work-related information used to predict the target variable:
 
 **Target Variable:** `mental_tiredness_score`
 
@@ -108,7 +115,7 @@ Example input features include:
 - Work environment
 - Work type
 
-The dataset is used for data preprocessing, exploratory analysis, model training, and evaluation.
+The dataset is used for data preprocessing, exploratory data analysis, model training, and evaluation.
 
 ---
 
@@ -134,7 +141,7 @@ Implemented and evaluated multiple regression algorithms:
 - Random Forest Regressor
 - Gradient Boosting Regressor
 
-Evaluation metrics:
+**Evaluation Metrics:**
 
 - Mean Absolute Error (MAE)
 - Mean Squared Error (MSE)
@@ -162,34 +169,35 @@ Evaluation metrics:
 - Implemented prediction activity monitoring.
 - Managed source code using Git and GitHub.
 - Deployed the application using Streamlit Community Cloud.
+- Containerized the application using Docker.
+- Built and tested Docker images.
+- Published the Docker image to Docker Hub.
+- Pulled and ran the published image successfully.
 
 ---
 
 ## 🏗️ Project Architecture
 
 ```text
-User Input
-    |
-    v
-Streamlit Web Application
-    |
-    v
-Input Validation
-    |
-    v
-Prediction Module
-    |
-    v
-Trained Random Forest Pipeline
-    |
-    v
-Predicted Mental Tiredness Score
-    |
-    v
-Display Prediction to User
-    |
-    v
-Logging & Prediction Monitoring
+                 User
+                   |
+                   v
+          Streamlit Application
+                   |
+                   v
+             Input Validation
+                   |
+                   v
+             Prediction Module
+                   |
+                   v
+          Random Forest Pipeline
+                   |
+                   v
+        Predicted Tiredness Score
+                   |
+                   v
+          Logging and Monitoring
 ```
 
 ---
@@ -223,6 +231,8 @@ Mental_Triedness_Prediction/
 ├── logs/
 │
 ├── app.py
+├── Dockerfile
+├── .dockerignore
 ├── requirements.txt
 ├── .gitignore
 └── README.md
@@ -232,7 +242,7 @@ Mental_Triedness_Prediction/
 
 ## 📈 Model Evaluation
 
-The project evaluates regression models using the following performance metrics:
+The project evaluates regression models using:
 
 | Metric | Description |
 |---|---|
@@ -243,11 +253,112 @@ The project evaluates regression models using the following performance metrics:
 
 The Random Forest Regression pipeline was selected as the final model after model comparison and optimization.
 
-*Actual evaluation scores can be added here after verifying the final notebook results.*
+*Actual evaluation scores can be added after verifying the final notebook results.*
 
 ---
 
-## 🚀 Installation & Setup
+## 🚀 Streamlit Deployment
+
+The application is deployed using Streamlit Community Cloud.
+
+**Live Application:**
+
+https://mental-tiredness-prediction-kbzdnfgvhheznilqyzdsbf.streamlit.app/
+
+Users can enter relevant lifestyle and work-related information and receive a predicted mental tiredness score.
+
+---
+
+## 🐳 Docker Deployment
+
+The application is containerized using Docker to make it easier to build, distribute, and run consistently across different environments.
+
+### Docker Hub Image
+
+**Repository:**
+
+https://hub.docker.com/r/bidyashree25/mental-tiredness-prediction
+
+**Image Name:**
+
+`bidyashree25/mental-tiredness-prediction:latest`
+
+### 1. Pull Docker Image
+
+```bash
+docker pull bidyashree25/mental-tiredness-prediction:latest
+```
+
+### 2. Run Docker Container
+
+```bash
+docker run -d --name mental-tiredness-app -p 8501:8501 bidyashree25/mental-tiredness-prediction:latest
+```
+
+### 3. Access the Application
+
+Open the following address in your browser:
+
+```text
+http://localhost:8501
+```
+
+### 4. Check Running Containers
+
+```bash
+docker ps
+```
+
+### 5. View Container Logs
+
+```bash
+docker logs mental-tiredness-app
+```
+
+### 6. Stop the Container
+
+```bash
+docker stop mental-tiredness-app
+```
+
+### 7. Remove the Container
+
+```bash
+docker rm mental-tiredness-app
+```
+
+### Docker Configuration
+
+The project includes:
+
+- `Dockerfile` – Instructions for building the application image.
+- `.dockerignore` – Excludes unnecessary files from the Docker build context.
+- Docker image – Contains the application and its required dependencies.
+- Docker container – Runs the Streamlit application.
+
+---
+
+## ⚙️ MLOps Implementation
+
+Basic MLOps practices implemented in this project:
+
+| Component | Implementation |
+|---|---|
+| Version Control | Git and GitHub |
+| Model Serialization | Joblib |
+| Experiment Tracking | CSV-based experiment records |
+| Logging | Python logging module |
+| Input Validation | Custom validation module |
+| Prediction Monitoring | CSV-based prediction logs |
+| Containerization | Docker |
+| Image Registry | Docker Hub |
+| Deployment | Streamlit Community Cloud |
+
+These implementations help organize the project, record experiment metadata, and maintain a history of predictions.
+
+---
+
+## 💻 Local Installation & Setup
 
 ### 1. Clone the Repository
 
@@ -267,7 +378,7 @@ cd Mental-Tiredness-Prediction
 python -m venv myenv
 ```
 
-### 4. Activate the Virtual Environment
+### 4. Activate the Environment
 
 **Windows:**
 
@@ -281,31 +392,11 @@ myenv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### 6. Run the Streamlit Application
+### 6. Run the Application
 
 ```bash
 streamlit run app.py
 ```
-
-The application will open in your browser.
-
----
-
-## ⚙️ MLOps Implementation
-
-Basic MLOps practices implemented in this project:
-
-| Component | Implementation |
-|---|---|
-| Version Control | Git and GitHub |
-| Model Serialization | Joblib |
-| Experiment Tracking | CSV-based experiment records |
-| Logging | Python logging module |
-| Input Validation | Custom validation module |
-| Prediction Monitoring | CSV-based prediction logs |
-| Deployment | Streamlit Community Cloud |
-
-These features help organize the project, record experiments, and maintain a history of predictions.
 
 ---
 
@@ -314,7 +405,7 @@ These features help organize the project, record experiments, and maintain a his
 - Add advanced experiment tracking using MLflow.
 - Implement data drift detection.
 - Monitor model performance using actual observed outcomes.
-- Improve model accuracy through additional feature engineering.
+- Improve model performance through additional feature engineering.
 - Add interactive visualizations and prediction history.
 - Automate model retraining.
 
@@ -324,17 +415,18 @@ These features help organize the project, record experiments, and maintain a his
 
 **Bidyashree Panda**
 
-- GitHub: [Bidyashreepanda](https://github.com/Bidyashreepanda)
-- LinkedIn: [Bidyashree Panda](https://www.linkedin.com/in/bidyashree-panda/)
+- GitHub: https://github.com/Bidyashreepanda
+- LinkedIn: https://www.linkedin.com/in/bidyashree-panda/
 
 ---
 
 ## ⭐ Acknowledgement
 
-This project was developed as part of a structured Machine Learning learning and implementation process, covering data analysis, model development, optimization, deployment, and basic MLOps practices.
+This project demonstrates an end-to-end Machine Learning workflow, including data analysis, preprocessing, model development, optimization, deployment, Docker containerization, and basic MLOps practices.
 
 ---
 
 <p align="center">
-  <b>Made with ❤️ using Python and Machine Learning</b>
+  <b>Made with ❤️ using Python, Machine Learning, Streamlit, and Docker</b>
 </p>
+
